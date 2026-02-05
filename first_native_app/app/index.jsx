@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import logo from '../assets/images/react-logo.png'
-
+import {Link} from 'expo-router'
 const home = () => {
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:25}}> hello</Text>
-      <Image source={logo} style={{margin:10}}/>
+      <View style={styles.button}>
+        <Link href="/about" style={styles.button}>button</Link>
+      </View>
     </View>
 
 
@@ -21,4 +22,10 @@ const styles = StyleSheet.create({
     justifyContent:"center",
   
   },
+  button:{
+    alignItems:"center",
+    justifyContent:'center',
+    backgroundColor:"rgb(138, 201, 44)",
+    
+  }
 })
