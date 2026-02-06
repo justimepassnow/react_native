@@ -1,9 +1,13 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
-import logo from '../assets/images/react-logo.png'
+import { StyleSheet, useColorScheme, Text, View,Image } from 'react-native'
+import {Colors} from '../constants/colors'
 import {Link} from 'expo-router'
 const home = () => {
+  const colorscheme = useColorScheme()
+  const theme=Colors[colorscheme] 
   return (
-    <View style={styles.container}>
+    
+    <View style= {[styles.container,{backgroundColor:theme.background}]}>
+      <Text style= {{color:theme.text,fontSize:20}}>THE APP</Text>
       <View style={styles.button}>
         <Link href="/about" style={styles.button}>button</Link>
       </View>
@@ -26,6 +30,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:'center',
     backgroundColor:"rgb(138, 201, 44)",
+    margin:10,
     
   }
 })

@@ -1,12 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native'
-import home from '../assets/images/android-icon-monochrome.png'
-import { Slot } from 'expo-router'
+import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { Link, Stack } from 'expo-router'
+import {Colors} from '../constants/colors'
+import {StatusBar} from 'expo-status-bar'
 const _layout = () => {
+  const colorscheme = useColorScheme()
+  const theme=Colors[colorscheme] 
   return (
-    <View  >
-        <Slot/>
-        <Text style={styles.footer}>footer</Text>
-    </View>
+    <>
+      <StatusBar value ='auto'/>
+      <View style={styles.footer}>
+          <Stack screenOptions={{
+            headerStyle:{ backgroundColor:theme.navBackground},
+            headerTintColor:theme.title,
+          }}>
+            <Stack.Screen name='index' options={{title:'HOME'}}/>
+            <Stack.Screen name='about' options={{title:'About'}}/>
+          </Stack>
+          <View style={styles.footText}>
+            <Link href='/'>HOME</Link>
+          </View>     
+      </View>
+    </>
   )
 }
 
@@ -17,8 +31,12 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignContent:'center',
-        backgroundColor:"rgb(0, 156, 234)"
-        
-
+    },
+    footText:{
+        flexDirection:"row",
+        padding:'10px',
+        justifyContent:'space-evenly',
+        alignContent:'center',
+        backgroundColor:'rgb(21, 127, 249)'
     }
 })
