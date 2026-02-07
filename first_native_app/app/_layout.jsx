@@ -17,7 +17,7 @@ const _layout = () => {
             <Stack.Screen name='about' options={{title:'About'}}/>
           </Stack>
           <View style={styles.footText}>
-            <Link href='/'>HOME</Link>
+             {/*add footer here */} 
           </View>     
       </View>
     </>
@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     },
     footText:{
         flexDirection:"row",
-        padding:'10px',
         justifyContent:'space-evenly',
         alignContent:'center',
         backgroundColor:'rgb(21, 127, 249)'
